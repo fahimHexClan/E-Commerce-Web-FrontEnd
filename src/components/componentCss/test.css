@@ -1,0 +1,33 @@
+.background {
+    position: relative;
+    width: 450px;
+    height: 290px;
+    border: 1px solid black;  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .val {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 60px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  span {
+    font-size: 60px;
+  }
+  
+  h1{
+    position: absolute;
+    top:0
+  }
+  .button-panel{
+    position: absolute;
+    bottom: 0;
+  }
