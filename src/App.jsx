@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import './App.css'
 import ProductCard from './components/productCard'
+import './App.css'
 import UserData from './components/userData'
 import Testing from './components/testing'
 import LoginPage from './pages/loginPage'
 import HomePage from './pages/homePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import SignupPage from './pages/SignupPage'
+import AdminHomePage from './pages/adminHomePage'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -17,7 +18,9 @@ function App() {
        <Routes path="/*">          
          <Route path="/" element={<HomePage/>}/>   
          <Route path="/login" element={<LoginPage/>}/>
-         <Route path="/*" element={<h1>404 error</h1>} />
+         <Route path="/signup" element={<SignupPage />} />
+         <Route path="/admin/*" element={<AdminHomePage />} />
+         <Route path="/*" element={<HomePage/>} />
        </Routes>
  
       </BrowserRouter>
