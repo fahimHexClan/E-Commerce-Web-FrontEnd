@@ -10,7 +10,7 @@ import axios from "axios";
  
    useEffect(() => {
     if (!productsLoaded) {
-      axios.get("import.meta.env.VITE_BACKEND_URL/api/products")
+      axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
       .then((res) => {
           console.log("API Response:", res.data);
           setProducts(Array.isArray(res.data.products) ? res.data.products : []); 
