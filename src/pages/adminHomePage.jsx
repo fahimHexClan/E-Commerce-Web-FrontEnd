@@ -1,6 +1,7 @@
 import { Link, Routes, Route } from "react-router-dom";
 import { BsGraphUp, BsBox, BsClipboard, BsPeople } from "react-icons/bs";
 import AdminProductPage from "./admin/adminProductPage";
+import AddProductForm from "./admin/addProductForm";
 
 
 export default function AdminHomePage() {
@@ -40,18 +41,18 @@ export default function AdminHomePage() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
-        <h1 className="text-3xl font-semibold text-gray-800">Welcome to Admin Dashboard</h1>
-        <p className="text-gray-600 mt-2">Manage your store efficiently with easy-to-use controls.</p>
+      <div className="flex-1 p-6">
 
         {/* Routes for different sections */}
-        <Routes path="/*">
-          <Route path="/dashboard" element={<h1>Dashboard</h1>} />
+        <Routes  path="/*">
+          <Route path="/" element={<h1>Dashboard</h1>} />
           <Route path="/products" element={<AdminProductPage/>} />
+          <Route path="products/addProduct" element={<AddProductForm />} />
           <Route path="/orders" element={<h1>Orders</h1>} />
           <Route path="/customers" element={<h1>Customers</h1>} />
+          <Route path="/*" element={<h1>404 not found the admin page</h1>}/>
         </Routes>
-      </main>
+      </div>
     </div>
   );
 }
