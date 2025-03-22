@@ -32,6 +32,12 @@ import { Link } from "react-router-dom";
          >
            Contact Us
          </Link>
+         <Link
+           to="/cart"
+           className="text-accent font-bold text-xl hover:border-b border-b-accent"
+         >
+           Cart
+         </Link>
        </div>
      </header>
    );

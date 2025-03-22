@@ -10,6 +10,7 @@ export default {
         "primary" : "#f3f3f3",
         "secondary" : "#5e5d5d",
         "accent" : "#cd7225",
+        "accent-light" : "#cd722590",
       }
     },
   },
