@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SignupPage from './pages/SignupPage'
 import AdminHomePage from './pages/adminHomePage'
 import { Toaster } from 'react-hot-toast'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -14,13 +15,15 @@ function App() {
 
         <BrowserRouter>
         <Toaster position='top-right'/>
-       <Routes path="/*">          
+        <GoogleOAuthProvider clientId='563685840172-6bso9nhhvru25cava2mktbr4j54d2htc.apps.googleusercontent.com'>
+       <Routes >          
          <Route path="/" element={<HomePage/>}/>   
          <Route path="/login" element={<LoginPage/>}/>
          <Route path="/signup" element={<SignupPage />} />
          <Route path="/admin/*" element={<AdminHomePage />} />
-         <Route path="/*" element={<HomePage/>} />
+         <Route path="*" element={<HomePage/>} />
        </Routes>
+       </GoogleOAuthProvider>
  
       </BrowserRouter>
     </>

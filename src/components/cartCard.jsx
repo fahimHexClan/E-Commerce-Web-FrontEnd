@@ -17,7 +17,7 @@ import axios from "axios"
            (response)=>{
              if(response.data!=null){
                setProduct(response.data)
-               console.log(response.data)
+               console.log(response.data, "product")
                setLoaded(true)
              }else{
                deleteItem(productId)
@@ -34,17 +34,26 @@ import axios from "axios"
    );
  
    return(
-     <tr className="hover:bg-cyan-50 cursor-pointer border-b border-gray-200 text-gray-700 transition-all">
-       <td className="py-4 px-6">
-       <img src={product?.image[0]} className="w-[70px] h-[70px] object-cover rounded-lg shadow-sm"/>
-       </td>
-       <td className="py-4 px-6 text-center font-medium">{product?.productName}</td>
-       <td className="py-4 px-6 text-center text-sm text-gray-500">{productId}</td>
-       <td className="py-4 px-6 text-center text-lg font-semibold">{qty}</td>
-       <td className="py-4 px-6 text-center font-medium text-green-600">LKR. {product?.lastPrice.toFixed(2)}</td>
-       <td className="py-4 px-6 text-center font-bold text-blue-600">{(product?.lastPrice*qty).toFixed(2)}</td>
-     </tr>
-   )
- 
- 
- }
+    <>
+       {!loaded ? (
+         <tr>loading</tr>
+       ) : (
+         <tr className="hover:bg-accent hover:text-white cursor-pointer">
+           <td className="">
+             <img
+               src={product?.image[0]}
+               className="w-[90px] h-[90px] object-cover mx-auto"
+             />
+           </td>
+           <td className="text-center">{product?.productName}</td>
+           <td className="text-center">{productId}</td>
+           <td className="text-center">{qty}</td>
+           <td className="text-center">LKR. {product?.lastPrice.toFixed(2)}</td>
+           <td className="text-center">
+             {(product?.lastPrice * qty).toFixed(2)}
+           </td>
+         </tr>
+       )}
+     </>
+   );
+ } 

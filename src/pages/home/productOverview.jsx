@@ -38,39 +38,59 @@ import axios from "axios";
       }
  
    return (
-     <div className="w-full h-[calc(100vh-100px)] ">
-       {
-         status == "loading"&&(//product eka load karanna "&"use karanne eka neththm anuith eka kiyana ekata  
-           <div className="w-full h-full flex items-center justify-center">
-             <div className="animate-spin rounded-full h-32 w-32  border-2 border-gray-500 border-b-accent border-b-4"></div>
- 
-           </div>
-         )
-       }
-       {
-         status == "not-found"&&(//product eka nththam
-           <ProductNotFound/>
-         )
-       }
-       {
-         status == "found"&&(//prroduct eka tibbanam
-         <div className="w-full h-full flex items-center justify-center">
-           <div className="w-[35%] h-full">
-             <ImageSlider images={product.image}/>
-           </div>
-           <div className="w-[65%] h-full p-4">
-             <h1 className="text-3xl font-bold text-gray-800">{product.productName}</h1>
-             <h1 className="text-3xl font-bold text-gray-500">{product.altNames.join(" | ")}</h1>
-             <p className="text-xl text-gray-600">{
-             (product.price>product.lastPrice)&&
-             <span className="line-through text-red-500">LKR.{product.price}</span>
-             } <span>{"LKR."+product.lastPrice}</span></p>
-             <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
-             <button onClick={onAddtoCartClick} className="bg-accent text-white p-2 rounded-lg">Add to cart</button>
-           </div>
-         </div>
-         )
-       }
-     </div>
+    <div className="w-full min-h-screen flex items-center justify-center p-4 bg-gray-100">
+    {/* Loading Spinner */}
+    {status === "loading" && (
+      <div className="flex justify-center items-center w-full h-full">
+        <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-400 border-t-blue-500"></div>
+      </div>
+    )}
+  
+    {/* Product Not Found */}
+    {status === "not-found" && <ProductNotFound />}
+  
+    {/* Product Found */}
+    {status === "found" && (
+      <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-6 bg-white p-6 rounded-lg shadow-xl transition-all duration-300 hover:shadow-2xl">
+        {/* Product Image */}
+        <div className="w-full lg:w-2/5 border-2 border-blue-600 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all hover:scale-105">
+          <ImageSlider images={product.image} />
+        </div>
+  
+        {/* Product Details */}
+        <div className="w-full lg:w-3/5 flex flex-col gap-4">
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-800 opacity-0 animate-fade-in">
+            {product.productName}
+          </h1>
+          <h2 className="text-lg lg:text-xl font-semibold text-gray-500">
+            {product.altNames.join(" | ")}
+          </h2>
+  
+          {/* Price Section */}
+          <p className="text-lg text-gray-700">
+            {product.price > product.lastPrice && (
+              <span className="line-through text-red-500 mr-2">
+                LKR {product.price}
+              </span>
+            )}
+            <span className="text-green-600 font-semibold text-xl">
+              LKR {product.lastPrice}
+            </span>
+          </p>
+  
+          {/* Description */}
+          <p className="text-gray-700">{product.description}</p>
+  
+          {/* Add to Cart Button */}
+          <button
+            onClick={onAddtoCartClick}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    )}
+  </div>
    );
- }
+ }  
