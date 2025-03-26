@@ -48,6 +48,12 @@ import NavSlider from "./navSlider";
            >
              Cart
            </Link>
+           <Link
+             to="/orders"
+             className="text-accent font-bold text-xl hover:border-b border-b-accent"
+           >
+             Orders
+           </Link>
          </div>
        </header>
      </>

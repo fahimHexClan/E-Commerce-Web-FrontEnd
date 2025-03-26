@@ -1,11 +1,38 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route,useNavigate } from "react-router-dom";
 import { BsGraphUp, BsBox, BsClipboard, BsPeople } from "react-icons/bs";
 import AdminProductPage from "./admin/adminProductPage";
 import AddProductForm from "./admin/addProductForm";
 import EditProductForm from "./admin/editProductForm";
-
+import AdminOrdersPage from "./admin/adminOrderPage";
+ import { useEffect, useState } from "react";
+ import toast from "react-hot-toast";
+ import axios from "axios";
 
 export default function AdminHomePage() {
+  const [user,setUser] = useState(null)
+   const navigate = useNavigate();
+   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+  
+    try {
+      const decodedToken = JSON.parse(atob(token.split(".")[1])); // Decode JWT
+      if (decodedToken.type !== "admin") {
+        toast.error("Unauthorized access");
+        navigate("/login");
+      } else {
+        setUser(decodedToken);
+      }
+    } catch (error) {
+      console.error("Invalid token", error);
+      toast.error("Invalid session. Please log in again.");
+      navigate("/login");
+    }
+  }, []);
+  
   return (
     <div className="flex w-full h-screen bg-gray-100">
       {/* Sidebar */}
@@ -45,15 +72,23 @@ export default function AdminHomePage() {
       <div className="flex-1 p-6">
 
         {/* Routes for different sections */}
-        <Routes  path="/*">
+        {user!=null&&<Routes path="/*">
           <Route path="/" element={<h1>Dashboard</h1>} />
           <Route path="/products" element={<AdminProductPage/>} />
           <Route path="products/addProduct" element={<AddProductForm />} />
           <Route path="products/editProduct" element={<EditProductForm/>} />
-          <Route path="/orders" element={<h1>Orders</h1>} />
+          <Route path="/orders" element={<AdminOrdersPage/>} />
           <Route path="/customers" element={<h1>Customers</h1>} />
           <Route path="/*" element={<h1>404 not found the admin page</h1>}/>
-        </Routes>
+        </Routes>}
+        {
+           user==null&&<div className="w-full h-full flex justify-center items-center">
+             {/* animating loading page */}
+             <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-accent"></div>
+ 
+           </div>
+         }
+
       </div>
     </div>
   );
