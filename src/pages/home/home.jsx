@@ -41,18 +41,24 @@ export default function Home() {
       </section>
 
       {/* Trending Products */}
-      <section className="py-6 px-4">
-        <h3 className="text-xl font-semibold mb-4">Trending Now</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="bg-white p-4 rounded-lg shadow-md">
-              <div className="bg-gray-300 h-32 rounded-md"></div>
-              <p className="mt-2 text-center font-semibold">Mobile {item}</p>
-              <p className="text-center text-gray-600">$999</p>
-            </div>
-          ))}
-        </div>
-      </section>
+<section className="py-6 px-4">
+  <h3 className="text-xl font-semibold mb-4">Trending Now</h3>
+  <div className="grid grid-cols-2 gap-4">
+    {[
+      { id: 1, name: "iPhone 13", price: "$799", image: "https://img.freepik.com/free-photo/elegant-smartphone-composition_23-2149437108.jpg?t=st=1743462360~exp=1743465960~hmac=b91c3cb8ae839db5273f9feb72264ed685898877a13627a6754da4b564f0bdca&w=996" },
+      { id: 2, name: "Samsung S23", price: "$999", image: "https://img.freepik.com/free-photo/many-fresh-flower-twigs-with-smartphone_23-2148104600.jpg?t=st=1743462408~exp=1743466008~hmac=025d11803946f6b6483aedd2f85bbd64fbd7ed91b27bbf18bf606f81d3a70018&w=996" },
+      { id: 3, name: "OnePlus 11", price: "$749", image: "https://img.freepik.com/free-photo/elegant-smartphone-composition_23-2149437080.jpg?t=st=1743462466~exp=1743466066~hmac=65a51e88164848d77f75a086f86fe264d6c43a15577b7ad018e54d61f04d6006&w=996" },
+      { id: 4, name: "Xiaomi Mi 12", price: "$699", image: "https://img.freepik.com/free-photo/futuristic-galaxy-mobile-phone-connects-with-wireless-technology-generated-by-ai_188544-29655.jpg?t=st=1743462589~exp=1743466189~hmac=c8df18032523c2d1e558317202a0f365060d3605d8961883d2d86ee86241ca6f&w=996" },
+    ].map((item) => (
+      <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
+        <img src={item.image} alt={item.name} className="h-32 w-full object-cover rounded-md" />
+        <p className="mt-2 text-center font-semibold">{item.name}</p>
+        <p className="text-center text-gray-600">{item.price}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-white text-center py-4 mt-6 shadow-md">
