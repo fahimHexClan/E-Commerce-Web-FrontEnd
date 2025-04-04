@@ -46,31 +46,39 @@ import axios from "axios"
   }
  
   return (
-    <div className="w-full h-full pt-4 relative">
-      <div
-            className="abs
-      olute w-full flex justify-center"
-          >
-            <input
-              type="text"
-              className="w-1/2 p-2 absolute z-50"
-              placeholder="Search Products"
-              onChange={search}
-              value={query}
-            />
-          </div>
-      {loadingStatus == "loaded" && (
-        <div className="w-full h-full  overflow-y-scroll flex flex-wrap justify-center pt-4 relative">
-          {products.map((product) => (
-            <ProductCard product={product} />
-          ))}
-        </div>
-      )}
-      {loadingStatus == "loading" && (
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="animate-spin rounded-full h-32 w-32  border-2 border-gray-500 border-b-accent border-b-4"></div>
-        </div>
-      )}
+    <div className="w-full min-h-screen pt-8 bg-gray-50 relative">
+    {/* Search Bar */}
+    <div className="absolute top-4 w-full flex justify-center px-4 z-10">
+      <input
+        type="text"
+        className="w-full sm:w-1/2 p-3 rounded-xl bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-accent transition-all"
+        placeholder="Search Products"
+        onChange={search}
+        value={query}
+      />
     </div>
-      );
-    }
+
+    {/* Loading Spinner */}
+    {loadingStatus === "loading" && (
+      <div className="w-full h-full flex items-center justify-center mt-20">
+        <div className="animate-spin rounded-full h-32 w-32 border-4 border-gray-300 border-t-accent"></div>
+      </div>
+    )}
+
+    {/* Display Products */}
+    {loadingStatus === "loaded" && (
+      <div className="w-full h-full overflow-y-auto pt-16 pb-8 flex flex-wrap justify-center gap-6 px-4">
+        {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard key={product.productId} product={product} />
+          ))
+        ) : (
+          <p className="text-xl font-semibold text-gray-500">
+            No products found.
+          </p>
+        )}
+      </div>
+    )}
+  </div>
+);
+}
