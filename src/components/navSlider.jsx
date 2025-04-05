@@ -17,7 +17,7 @@ import { IoMdClose } from "react-icons/io";
          />
          </div>
          <Link
-           to="/"
+           to="/Home"
            className="text-accent font-bold text-xl hover:border-b border-b-accent"
          >
            Home

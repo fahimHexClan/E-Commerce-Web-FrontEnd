@@ -11,7 +11,7 @@ import NavSlider from "./navSlider";
       <header className="bg-white shadow-md w-full h-[100px] flex items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <div className="flex items-center">
-          <Link to="/">
+          <Link to="/Home">
             <img
               src="/shopping-online.jpg"
               alt="Logo"
@@ -22,7 +22,7 @@ import NavSlider from "./navSlider";
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6">
           <Link
-            to="/"
+            to="/Home"
             className="text-[#1E3A8A] font-bold text-xl hover:text-[#F59E0B] hover:border-b-2 hover:border-[#F59E0B] transition-all duration-200"
           >
             Home

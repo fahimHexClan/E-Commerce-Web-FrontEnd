@@ -17,8 +17,8 @@ function App() {
         <Toaster position='top-right'/>
         <GoogleOAuthProvider clientId='563685840172-6bso9nhhvru25cava2mktbr4j54d2htc.apps.googleusercontent.com'>
        <Routes >          
-         <Route path="/" element={<HomePage/>}/>   
-         <Route path="/login" element={<LoginPage/>}/>
+         <Route path="/Home" element={<HomePage/>}/>   
+         <Route path="/" element={<LoginPage/>}/>
          <Route path="/signup" element={<SignupPage />} />
          <Route path="/admin/*" element={<AdminHomePage />} />
          <Route path="*" element={<HomePage/>} />

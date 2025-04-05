@@ -24,7 +24,7 @@ export default function LoginPage() {
               window.location.href = "/admin";
               console.log("User Type:", res.data.user?.type);
             } else {
-              window.location.href = "/";
+              window.location.href = "/Home";
             }
           }
         });
