@@ -28,6 +28,19 @@ import { IoMdClose } from "react-icons/io";
          >
            Products
          </Link>
+
+         <Link
+           to="/cart"
+           className="text-accent font-bold text-xl hover:border-b border-b-accent"
+         >
+           Cart
+         </Link>
+         <Link
+           to="/orders"
+           className="text-accent font-bold text-xl hover:border-b border-b-accent"
+         >
+           Orders
+         </Link>
          <Link
            to="/about"
            className="text-accent font-bold text-xl hover:border-b border-b-accent"
@@ -41,12 +54,7 @@ import { IoMdClose } from "react-icons/io";
            Contact Us
          </Link>
  
-         <Link
-           to="/cart"
-           className="text-accent font-bold text-xl hover:border-b border-b-accent"
-         >
-           Cart
-         </Link>
+         
        </div>
      </div>
    );

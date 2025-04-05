@@ -34,18 +34,6 @@ import NavSlider from "./navSlider";
             Products
           </Link>
           <Link
-            to="/about"
-            className="text-[#1E3A8A] font-bold text-xl hover:text-[#F59E0B] hover:border-b-2 hover:border-[#F59E0B] transition-all duration-200"
-          >
-            About Us
-          </Link>
-          <Link
-            to="/contact"
-            className="text-[#1E3A8A] font-bold text-xl hover:text-[#F59E0B] hover:border-b-2 hover:border-[#F59E0B] transition-all duration-200"
-          >
-            Contact Us
-          </Link>
-          <Link
             to="/cart"
             className="text-[#1E3A8A] font-bold text-xl hover:text-[#F59E0B] hover:border-b-2 hover:border-[#F59E0B] transition-all duration-200"
           >
@@ -57,6 +45,21 @@ import NavSlider from "./navSlider";
           >
             Orders
           </Link>
+          <Link
+            to="/about"
+            className="text-[#1E3A8A] font-bold text-xl hover:text-[#F59E0B] hover:border-b-2 hover:border-[#F59E0B] transition-all duration-200"
+          >
+            
+            About Us
+          </Link>
+          <Link
+            to="/contact"
+            className="text-[#1E3A8A] font-bold text-xl hover:text-[#F59E0B] hover:border-b-2 hover:border-[#F59E0B] transition-all duration-200"
+          >
+            Contact Us
+          </Link>
+         
+          
         </nav>
         {/* Mobile Navigation */}
         <div className="lg:hidden">
