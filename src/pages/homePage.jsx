@@ -9,6 +9,7 @@ import ShippingPage from './home/shipping';
 import Home from './home/home';
 import AboutUs from './home/aboutUs';
 import ContactUs from './home/contact';
+import SignupPage from './SignupPage';
 export default function HomePage() {
     return (
         <div className="h-screen w-full">
@@ -28,6 +29,8 @@ export default function HomePage() {
        <Route path="/cart" element={<Cart/>}/>
        <Route path="/shipping" element={<ShippingPage/>}/>   
            <Route path='/orders' element={<MyOrdersPage/>}/>   
+           <Route path='/signup' element={<SignupPage/>}/>   
+
        </Routes>
        </div>
      </div>

@@ -1,9 +1,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, User, ShoppingCart, Home, Star, Heart, Phone, Smartphone, ChevronRight } from "lucide-react";
+import { Search, User, ShoppingCart, Home, Star, Heart, Phone, Smartphone, ChevronRight ,LogOut } from "lucide-react";
+
+
 
 export default function MobileStore() {
+
   const [search, setSearch] = useState("");
+  const handleLoginClick = () => {
+    window.location.href = "/";
+
+  };
+
+  const handleCartClick = () => {
+    window.location.href = "/cart";
+  };
+  const handleProductClick = () => {
+    window.location.href = "/products";
+  };
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -35,10 +49,11 @@ export default function MobileStore() {
           
           {/* Icons */}
           <div className="flex items-center space-x-6">
-            <button className="text-white/90 hover:text-white transition-colors">
-              <User size={22} />
+            <button  onClick={ handleLoginClick}  className="text-white/90 hover:text-white transition-colors" >
+              <LogOut  size={22} />
             </button>
-            <button className="text-white/90 hover:text-white transition-colors relative">
+
+            <button onClick={ handleCartClick}className="text-white/90 hover:text-white transition-colors relative">
               <ShoppingCart size={22} />
               <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-blue-900 w-5 h-5 flex items-center justify-center rounded-full font-bold">3</span>
             </button>
@@ -81,7 +96,7 @@ export default function MobileStore() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>Explore Now</span>
+              <span onClick={ handleProductClick}>Explore Now</span>
               <ChevronRight className="group-hover:translate-x-1 transition-transform" size={18} />
             </motion.button>
           </div>
